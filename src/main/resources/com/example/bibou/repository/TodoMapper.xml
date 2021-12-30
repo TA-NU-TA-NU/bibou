@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.bibou.repository.TodoMapper">
+
+    <resultMap id="todo" type="com.example.bibou.dto.Todo">
+        <id property="todo_id" jdbcType="INTEGER" column="todo_id" />
+        <result property="user_id" jdbcType="INTEGER" column="user_id" />
+        <result property="title" jdbcType="VARCHAR" column="title" />
+        <result property="contents" jdbcType="VARCHAR" column="contents" />
+        <result property="last_update" jdbcType="TIMESTAMP" column="last_update" /> 
+    </resultMap>
+
+    <insert id="insert" parameterType="com.example.bibou.dto.Todo" useGeneratedKeys="true" keyProperty="todo_id">
+        INSERT INTO "todo"("user_id","title","contents","last_update")
+        VALUES(
+            #{user_id},
+            #{title},
+            #{contents},
+            #{last_update}
+        );
+    </insert>
+
+    <select id="selectAll" resultType="com.example.bibou.dto.Todo">
+        select * from todo
+    </select>
+
+    <select id="selectByTodoId" parameterType="INTEGER" resultType="com.example.bibou.dto.Todo">
+        select * from todo
+        where todo_id = #{todo_id}
+    </select>
+
+    <select id="selectByUserId" resultType="com.example.bibou.dto.Todo">
+        select * from todo
+        where user_id = #{user_id}
+    </select>
+
+    <update id="update" parameterType="com.example.bibou.dto.Todo">
+        update todo
+        set user_id = #{user_id},
+            title = #{title},
+            contents = #{contents},
+            last_update = #{last_update}
+        where todo_id = #{todo_id}
+    </update>
+
+    <delete id="delete">
+        delete from todo
+        where todo_id = #{todo_id}
+    </delete>
+</mapper>
