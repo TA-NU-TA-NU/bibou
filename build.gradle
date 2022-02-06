@@ -44,6 +44,12 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation' //javax.validation.*の利用のため
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.dbunit:dbunit:2.5.3' //dbunit
+	//security
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.security:spring-security-test'
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
 
 test {
