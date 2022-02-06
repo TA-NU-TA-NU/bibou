@@ -48,43 +48,4 @@ public class MainSecurityConfigurer extends WebSecurityConfigurerAdapter{
                 .csrf().disable()
                 .formLogin().disable();
     }
-
-    // @Override
-    // protected void configure(HttpSecurity https)throws Exception {
-    //     https
-    //         .authorizeRequests()
-    //             //アクセス制限のないURLの設定
-    //             .antMatchers("/","/login","/error").permitAll()
-    //             //そのほかは認証済みであること
-    //             .anyRequest()
-    //             .authenticated()
-    //             .and()
-    //         .formLogin()
-    //             //loginパス
-    //             .loginPage("/login") //ログイン画面のＵＲＬ
-    //             //認証
-    //             .loginProcessingUrl("/authenticate") //ログイン認証処理のＵＲＬ
-    //             //accept
-    //             .defaultSuccessUrl("/loginSuccess") //ログイン成功時に遷移するＵＲＬ
-    //             //failure
-    //             .failureUrl("/login") //ログイン失敗時に遷移するＵＲＬ
-    //             .usernameParameter("username") //ログイン画面のユーザー名のパラメータ名
-    //             .passwordParameter("password") //ログイン画面のパスワードのパラメータ名
-    //             .and()
-    //         .logout()
-    //             //logout処理
-    //             .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-    //             //kogout成功時
-    //             .logoutSuccessUrl("/login")
-    //             //ログアウト時に削除
-    //             .deleteCookies("JSESESSIONID")
-    //             //セッション破棄
-    //             .invalidateHttpSession(true)
-    //             .permitAll()
-    //             .and()
-    //         .sessionManagement()
-    //             //無効な背ション
-    //             .invalidSessionUrl("/invalidSession");
-    // }
-
 }
